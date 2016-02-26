@@ -42,9 +42,9 @@ class EmailLoader:
 	def get_email_dict_array(self):
 		extension = self.file_name.split('.')[-1].strip()
 		if extension == 'csv':
-			self._read_in_csv(file_name)
+			self._read_in_csv(self.file_name)
 		elif extension == 'xlsx':
-			data = self._read_in_xlxs(file_name)
+			data = self._read_in_xlxs(self.file_name)
 		else:
 			print "Unsupported data format!"
 		email_dict_array = []
