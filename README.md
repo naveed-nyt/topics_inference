@@ -68,7 +68,7 @@ https://github.com/echen/sarah-palin-lda
 
 - Stanford Topic Modeling Toolbox (http://nlp.stanford.edu/software/tmt/tmt-0.4/)
 
-## Personality## 
+## Personality ## 
 https://indico.io/product
 
 import indicoio
