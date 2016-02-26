@@ -1,23 +1,29 @@
-# topics_inference
+# Topics Inference Approaches
 
 ## Python ##
 ### Install Libraries ###
+```bash
 easy_install --upgrade numpy
 pip install -U scikit-learn
+```
 
 ### LDA Topics ###
-`from nmf_topics import NMFTopics
+```python
+from nmf_topics import NMFTopics
 
 processor = NMFTopics(email_file_path)
 processor.process()
-processor.print_topics()`
+processor.print_topics()
+```
 
 ### NMF Topics ###
-`from nmf_topics import NMFTopics
+```python
+from nmf_topics import NMFTopics
 
 processor = LDATopics(email_file_path)
 processor.process()
-processor.print_topics()`
+processor.print_topics()
+```
 
 ## Mallet ##
 Download
