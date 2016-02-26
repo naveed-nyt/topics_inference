@@ -67,10 +67,9 @@ class EmailLoader:
 		file_counter = 1
 		for row in dict_data:
 			with open(os.path.join(output_dir, prefix + str(file_counter) + '.txt'), 'w') as f:
-				
-				if row['subject'] is not None and type(row['subject']) is str:
+				if row['subject'] is not None and type(row['subject']) is unicode:
 					f.write(row['subject'].encode('utf-8') + '\n')
-				if row['body'] is not None:
+				if row['body'] is not None and type(row['body']) is unicode:
 					f.write(row['body'].encode('utf-8'))
 					
 				file_counter += 1
