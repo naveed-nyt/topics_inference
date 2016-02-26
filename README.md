@@ -1,10 +1,35 @@
-# topics_inference
+# Topics Inference Approaches
 
+## Python ##
+### Install Libraries ###
+```bash
+easy_install --upgrade numpy
+pip install -U scikit-learn
+```
 
 File Parser
 python email_reader.py splitfile data/email_export.xlsx ./output
 
 Mallet
+### LDA Topics ###
+```python
+from nmf_topics import NMFTopics
+
+processor = NMFTopics(email_file_path)
+processor.process()
+processor.print_topics()
+```
+
+### NMF Topics ###
+```python
+from nmf_topics import NMFTopics
+
+processor = LDATopics(email_file_path)
+processor.process()
+processor.print_topics()
+```
+
+## Mallet ##
 Download
 http://mallet.cs.umass.edu/download.php
 Put each email in a separate folder
