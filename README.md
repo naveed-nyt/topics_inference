@@ -1,6 +1,9 @@
 # topics_inference
 
 
+File Parser
+python email_reader.py splitfile data/email_export.xlsx ./output
+
 Mallet
 Download
 http://mallet.cs.umass.edu/download.php
