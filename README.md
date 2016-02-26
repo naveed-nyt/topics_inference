@@ -10,10 +10,9 @@ pip install nltk
 pip install beautifulsoup4
 ```
 
-File Parser
+### File Parser ###
 python email_reader.py splitfile data/email_export.xlsx ./output
 
-Mallet
 ### LDA Topics ###
 ```python
 from nmf_topics import NMFTopics
