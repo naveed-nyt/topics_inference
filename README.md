@@ -39,10 +39,14 @@ http://mallet.cs.umass.edu/download.php
 Put each email in a separate folder
 
 Import data into mallet readable format
+```bash
 ./bin/mallet import-dir --input sample-data/web/email/ --output tutorial.mallet --keep-sequence --remove-stopwords
+```
 
 Train Topics
+```bash
 ./bin/mallet train-topics --input tutorial.mallet --num-top-words 5   --num-topics 5 --output-topic-keys topics.txt --output-doc-topics topic-files.txt
+```
 
 topics.txt - list of all topics
 topic-files.txt - for each file the topic probabilities
@@ -71,9 +75,13 @@ https://github.com/echen/sarah-palin-lda
 ## Personality ## 
 https://indico.io/product
 
+```python
 import indicoio
 indicoio.config.api_key = '68394629d3fabe1c4f08a0ebcabec43a'
 print(indicoio.personality('I finally was able to call your help line and all it took was YOUR HELP LINE putting me back on a list, not me doing anything from my end. Since none of the issues appeared in my spam file it is not likely that that was the problem. In any case, I am now receiving the headline news again. In the future, it would have been helpful to have received directions on"'))
+```
 
 Result
+```python
 {u'openness': 0.5113306794768181, u'extraversion': 0.41991408750162285, u'agreeableness': 0.4928200720695027, u'conscientiousness': 0.5703676003834297}
+```
