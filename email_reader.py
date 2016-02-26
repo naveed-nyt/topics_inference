@@ -1,6 +1,9 @@
 import csv
 import sys
+import os
 from openpyxl import load_workbook
+import codecs, cStringIO
+import re
 
 ##
 # Usage:
@@ -49,10 +52,30 @@ class EmailLoader:
 			email_dict_array.append({'date': row[2], 'subject': row[3], 'body': row[4]})
 		return email_dict_array
 
+	def write_to_text(self, file_name, dict_data):
+		with open(file_name, 'w') as f:
+			for row in dict_data:
+				if row['body']:
+					f.write(row['body'] + '\n')
+		print("Wrote to " + file_name)
+
+	def write_to_individual_files(self, output_dir, dict_data):
+		file_counter = 1
+		for row in dict_data:
+			with open(os.path.join(output_dir, str(file_counter) + '.txt'), 'w') as f:
+				if row['subject'] is not None:
+					f.write(str(row['subject']) + '\n')
+				f.write(str(row['body']))
+				file_counter += 1
+
 if __name__ == '__main__':
 	if len(sys.argv) < 2:
-		print("Need to specify file name as second argument.")
+		print("Usage: python email_reader.py splitfile FILE_NAME DIR_OUTPUT\n")
 	else:
-		file_name = sys.argv[1]
-		email_loader = EmailLoader(file_name)
-		print email_loader.get_email_dict_array()[0]
+		cmd = sys.argv[1]
+		if cmd == 'splitfile' and len(sys.argv) == 4:	
+			file_name = sys.argv[2]
+			output_dir = sys.argv[3]
+			email_loader = EmailLoader(file_name)
+			dict_arr = email_loader.get_email_dict_array()
+			email_loader.write_to_individual_files(output_dir, dict_arr)
