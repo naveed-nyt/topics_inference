@@ -4,6 +4,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 
 from email_reader import EmailLoader
+from text_cleaner import TextCleaner
 
 NUM_FEATURES = 1000
 NUM_TOPICS = 10
@@ -26,7 +27,10 @@ class LDATopics:
 		# Process emails into a list of email body contents
 		for email_rec in emails:
 			if email_rec['body']:
-				self.email_data.append(email_rec['body'])
+				# Clean the text and add to list
+				cleaner = TextCleaner(email_rec['body'])
+
+				self.email_data.append(" ".join(cleaner.tokenize_str()))
 
 	## Public methods ##
 	def process(self, topics=None, features=None):

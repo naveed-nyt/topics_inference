@@ -1,0 +1,10 @@
+nyt
+com
+nytimes
+customercar
+class
+width
+tabl
+height
+display
+td
