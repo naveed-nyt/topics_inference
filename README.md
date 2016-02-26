@@ -87,3 +87,6 @@ Result
 ```python
 {u'openness': 0.5113306794768181, u'extraversion': 0.41991408750162285, u'agreeableness': 0.4928200720695027, u'conscientiousness': 0.5703676003834297}
 ```
+
+## Visualize Results (Word Cloud) ##
+https://github.com/jasondavies/d3-cloud
