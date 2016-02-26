@@ -26,7 +26,7 @@ class NMFTopics:
 		self.email_data = []
 
 		for email_rec in emails:
-			if email_rec['body']:
+			if email_rec['body'] and email_rec['direction'] == 'inbound':
 				# Clean the text and add to list
 				cleaner = TextCleaner(email_rec['body'])
 
