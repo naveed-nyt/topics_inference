@@ -53,14 +53,17 @@ class EmailLoader:
 		return email_dict_array
 
 	def write_to_text(self, file_name, dict_data):
+		file_name = file_name.split('/')[-1].split('.')[0] + '.txt' 
 		with open(file_name, 'w') as f:
 			for row in dict_data:
+				if row['subject']:
+					f.write(str(row['subject']) + '\n')
 				if row['body']:
 					f.write(row['body'] + '\n')
 		print("Wrote to " + file_name)
 
 	def write_to_individual_files(self, file_name, output_dir, dict_data):
-		prefix = file_name.split('.')[0] + '_'
+		prefix = file_name.split('/')[-1].split('.')[0] + '_'
 		file_counter = 1
 		for row in dict_data:
 			with open(os.path.join(output_dir, prefix + str(file_counter) + '.txt'), 'w') as f:
@@ -73,11 +76,16 @@ if __name__ == '__main__':
 	if len(sys.argv) < 2:
 		print("Usage: python email_reader.py splitfile FILE_NAME DIR_OUTPUT\n" + 
 			  "                              singlefile FILE_NAME")
-	else:
+	elif len(sys.argv) >= 3:
 		cmd = sys.argv[1]
+		file_name = sys.argv[2]
+		email_loader = EmailLoader(file_name)
+		dict_arr = email_loader.get_email_dict_array()
+
+		if cmd == 'singlefile':
+			email_loader.write_to_text(file_name, dict_arr)
+
 		if cmd == 'splitfile' and len(sys.argv) == 4:	
-			file_name = sys.argv[2]
 			output_dir = sys.argv[3]
-			email_loader = EmailLoader(file_name)
-			dict_arr = email_loader.get_email_dict_array()
 			email_loader.write_to_individual_files(file_name, output_dir, dict_arr)
+
