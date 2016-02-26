@@ -4,6 +4,7 @@ import re
 import os
 from nltk.stem.snowball import SnowballStemmer
 from bs4 import BeautifulSoup
+from HTMLParser import HTMLParser
 
 # Based on code from http://brandonrose.org/clustering
 
@@ -13,9 +14,12 @@ class TextCleaner:
 		self.text = text
 
 	def tokenize_str(self):
+		if self.text is None or type(self.text) not in [str, unicode]:
+			return []
+		text = self.text.encode('utf-8')
 		stop_words = self._get_stop_words_set()
 		stemmer = self._get_stemmer()
-		text = self._strip_html_tags(self.text)
+		text = self._strip_text(text)
 		tokens = [word for sentence in nltk.sent_tokenize(text) for word in nltk.word_tokenize(sentence)]
 		filtered_tokens = []
 		for token in tokens:
