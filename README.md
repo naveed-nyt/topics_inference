@@ -5,6 +5,9 @@
 ```bash
 easy_install --upgrade numpy
 pip install -U scikit-learn
+pip install openpyxl
+pip install nltk
+pip install beautifulsoup4
 ```
 
 ### LDA Topics ###
