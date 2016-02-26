@@ -59,10 +59,11 @@ class EmailLoader:
 					f.write(row['body'] + '\n')
 		print("Wrote to " + file_name)
 
-	def write_to_individual_files(self, output_dir, dict_data):
+	def write_to_individual_files(self, file_name, output_dir, dict_data):
+		prefix = file_name.split('.')[0] + '_'
 		file_counter = 1
 		for row in dict_data:
-			with open(os.path.join(output_dir, str(file_counter) + '.txt'), 'w') as f:
+			with open(os.path.join(output_dir, prefix + str(file_counter) + '.txt'), 'w') as f:
 				if row['subject'] is not None:
 					f.write(str(row['subject']) + '\n')
 				f.write(str(row['body']))
@@ -70,7 +71,8 @@ class EmailLoader:
 
 if __name__ == '__main__':
 	if len(sys.argv) < 2:
-		print("Usage: python email_reader.py splitfile FILE_NAME DIR_OUTPUT\n")
+		print("Usage: python email_reader.py splitfile FILE_NAME DIR_OUTPUT\n" + 
+			  "                              singlefile FILE_NAME")
 	else:
 		cmd = sys.argv[1]
 		if cmd == 'splitfile' and len(sys.argv) == 4:	
@@ -78,4 +80,4 @@ if __name__ == '__main__':
 			output_dir = sys.argv[3]
 			email_loader = EmailLoader(file_name)
 			dict_arr = email_loader.get_email_dict_array()
-			email_loader.write_to_individual_files(output_dir, dict_arr)
+			email_loader.write_to_individual_files(file_name, output_dir, dict_arr)
