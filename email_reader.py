@@ -2,6 +2,14 @@ import csv
 import sys
 from openpyxl import load_workbook
 
+##
+# Usage:
+# 
+# email_loader = EmailLoader(file_name)
+# email_dict = email_loader.get_email_dict_array()
+#
+# print email_dict[0] -> {'date': '..', 'subject': '..', 'body': '..'}
+# 
 class EmailLoader:
 
 	def __init__(self, file_name):
