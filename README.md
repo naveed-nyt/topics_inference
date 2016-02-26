@@ -77,7 +77,9 @@ https://indico.io/product
 
 ```python
 import indicoio
+
 indicoio.config.api_key = '68394629d3fabe1c4f08a0ebcabec43a'
+
 print(indicoio.personality('I finally was able to call your help line and all it took was YOUR HELP LINE putting me back on a list, not me doing anything from my end. Since none of the issues appeared in my spam file it is not likely that that was the problem. In any case, I am now receiving the headline news again. In the future, it would have been helpful to have received directions on"'))
 ```
 
