@@ -1,7 +1,25 @@
 # topics_inference
 
+## Python ##
+### Install Libraries ###
+easy_install --upgrade numpy
+pip install -U scikit-learn
 
-Mallet
+### LDA Topics ###
+`from nmf_topics import NMFTopics
+
+processor = NMFTopics(email_file_path)
+processor.process()
+processor.print_topics()`
+
+### NMF Topics ###
+`from nmf_topics import NMFTopics
+
+processor = LDATopics(email_file_path)
+processor.process()
+processor.print_topics()`
+
+## Mallet ##
 Download
 http://mallet.cs.umass.edu/download.php
 Put each email in a separate folder
