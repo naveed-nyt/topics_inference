@@ -11,7 +11,9 @@ pip install beautifulsoup4
 ```
 
 ### File Parser ###
+```python
 python email_reader.py splitfile data/email_export.xlsx ./output
+```
 
 ### LDA Topics ###
 ```python
