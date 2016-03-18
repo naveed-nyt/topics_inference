@@ -1,0 +1,29 @@
+100 Hack Day
+
+https://cloud.google.com/prediction/docs/hello_world
+
+
+Project ID = 75724010380
+Bucket = emailclassification/language_id.txt
+Model name: languageidentifier
+
+Project ID = 75724010380
+Bucket = emailclassification/email_export_final-1.txt
+Model name: emailidentifier
+
+Project ID = 75724010380
+Bucket = emailclassification/training_email_data.csv
+Model name: emailidentifierbig
+
+Vacation Stop
+Dont deliver to me i will be away from home
+Put a temporary stop i will be away
+
+Gifts
+I want to give so my friend can get digital access
+
+Delivery Complaint
+They left it on my lawn, and i could not read it
+The paper was soggy, and i need another one
+
+
